@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<body>
+
+<!-- <script src="js/jquery.min.js"></script> -->
+<script src="js/paper-full.min.js"></script>
+
+<canvas id="trackCanvas" width="1200" height="700" style="border:1px solid #000000;">
+    Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+<script>
+    window.onload = function () {
+        var canvas = document.getElementById("trackCanvas");
+        paper.setup(canvas);
+        drawTrack();
+    }
+
+    function drawTrack() {
+        var trackDataX = [60,120,220,320,420,520,620,720,820,920,980,1040,1049];
+        var trackDataY = [60,60,60,60,60,60,60,60,60,120,170,270];
+        var wallWidth=30;
+        var grassWidth=60;
+        var asphaltWidth=120;
+
+        // outer wall
+        var myPath = new paper.Path();
+        myPath.strokeColor = 'red';
+        myPath.strokeWidth = wallWidth;
+        for (var i=0; i<trackDataX.length; i++) {
+            myPath.add(new paper.Point(trackDataX[i], trackDataY[i]));
+        }
+        myPath.smooth();
+
+        // outer grass
+
+        paper.view.update();
+    }
+
+</script>
+
+</body>
+
+</html>
